@@ -5,3 +5,4 @@ app/logs
 vendor
 app/config/parameters.yml
 web/bundles
+web/js/fos_js_routes.js
