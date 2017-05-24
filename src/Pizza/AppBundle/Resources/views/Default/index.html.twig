@@ -1,0 +1,45 @@
+{% extends "PizzaAppBundle::layout.html.twig" %}
+
+{% block css %}
+
+{% endblock %}
+
+{% block body %}
+
+<div id="wrap" ng-app="pizza">
+    <!-- Top Bar -->
+    <div class="top-bar tri-white-bottom">
+
+    </div>
+
+    <ui-view></ui-view>
+</div>
+{% endblock %}
+
+
+
+
+{% block js %}
+    {{ parent() }}
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/@uirouter/angularjs@1.0.3/release/angular-ui-router.js"></script>
+
+    <script type="text/javascript">
+        const BASE_URL = document.URL.split("#")[0];
+
+    </script>
+
+
+    {% javascripts
+    'bundles/fosjsrouting/js/router.js'
+    'js/fos_js_routes.js'
+    'js/app.js'
+    'js/router.js'
+    'js/controller.js'
+    'js/service.js'
+    %}
+    <script src="{{ asset_url }}"></script>
+    {% endjavascripts %}
+
+{% endblock %}

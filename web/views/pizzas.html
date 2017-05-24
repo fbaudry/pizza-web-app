@@ -1,0 +1,51 @@
+<div class="row">
+    <div class="col-xs-12 col-md-6 col-lg-4">
+        <section class="pizza-menu">
+
+            <!-- Flavours -->
+            <ul class="pizza-flavers">
+                <!-- Pizza Flavours -->
+                <li ng-repeat="pizza in pizzas track by $index" ng-click="select_pizza(pizza)">
+                    <!-- Pizza Image -->
+                    <div class="media-left">
+                        <div class="menu-img">
+                            <img src="img/menu-img-1.jpg" alt="">
+                        </div>
+                    </div>
+                    <!-- Pizza Tittles -->
+                    <div class="media-body">
+                        <div class="menu-tittle">
+                            <h5>{{ $index+1 }} . {{ pizza.name }}</h5>
+                            <div><span ng-repeat="pizzaIngredient in pizza.ingredients track by $index">{{ pizzaIngredient.ingredient.name }}<span ng-if="!$last">, </span></span> </div>
+                        </div>
+
+                        <!-- Pizza Price -->
+                        <div class="pizza-price" ng-bind="get_pizza_price(pizza)"></div>
+                    </div>
+                </li>
+            </ul>
+        </section>
+    </div>
+
+    <div class="col-xs-12 col-md-6 col-lg-8">
+
+        <div class="pizza-sizes select-own">
+            <h3>{{ selected_pizza.name }}</h3>
+        </div>
+
+        <div class="ingredients">
+            <ul>
+
+                <!-- Cheese -->
+                <li ng-repeat="ingredient in ingredients track by $index">
+                    <div class="checkbox">
+                        <input type="checkbox" id="checkbox1-{{ $index }}" ng-checked="is_selected_ingredient(ingredient)" ng-click="toggle_ingredient(ingredient)">
+                        <label for="checkbox1-{{ $index }}"> <img ng-src="img/{{ ingredient.name }}.png" alt="" > <span ng-bind="get_ingredient_price(ingredient)"></span> </label>
+                    </div>
+                </li>
+
+
+            </ul>
+        </div>
+    </div>
+</div>

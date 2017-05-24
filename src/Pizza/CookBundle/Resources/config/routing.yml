@@ -1,0 +1,11 @@
+pizza_cook_ingredient:
+    type: rest
+    resource: Pizza\CookBundle\Controller\IngredientController
+
+pizza_cook_pizza:
+    type: rest
+    resource: Pizza\CookBundle\Controller\PizzaController
+
+pizza_cook_pizza_ingredient:
+    type: rest
+    resource: Pizza\CookBundle\Controller\PizzaIngredientController
